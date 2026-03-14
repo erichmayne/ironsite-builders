@@ -1,6 +1,3 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-
 const services = [
   {
     title: 'Kitchen & Bath Remodels',
@@ -35,31 +32,19 @@ const services = [
 ]
 
 export default function Services() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
-
   return (
     <section id="services" className="py-24 sm:py-32 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <div className="h-[3px] w-16 bg-gold-500 mx-auto mb-6" />
           <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">What We Do</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700">Our Services</h2>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200">
-          {services.map(({ title, desc, image }, i) => (
-            <motion.div
+          {services.map(({ title, desc, image }) => (
+            <div
               key={title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
               className="group bg-white overflow-hidden"
             >
               <div className="relative h-56 overflow-hidden">
@@ -74,7 +59,7 @@ export default function Services() {
                 <h3 className="font-display text-xl font-600 mb-3 group-hover:text-gold-600 transition-colors">{title}</h3>
                 <p className="text-sm text-stone-500 leading-relaxed">{desc}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

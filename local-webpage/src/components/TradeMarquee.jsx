@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Wrench, Zap, Droplets, Hammer, Paintbrush, Home, TreePine, HardHat, Thermometer, SprayCan } from 'lucide-react'
 
 const trades = [
@@ -20,11 +19,7 @@ export default function TradeMarquee() {
   return (
     <section className="py-12 border-y border-eggshell-300/50 overflow-hidden bg-white/30">
       <div className="relative">
-        <motion.div
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-          className="flex gap-10 w-max"
-        >
+        <div className="flex gap-10 w-max animate-marquee">
           {doubled.map(({ icon: Icon, label }, i) => (
             <div
               key={i}
@@ -34,7 +29,7 @@ export default function TradeMarquee() {
               <span className="text-sm font-medium text-blue-900/50">{label}</span>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

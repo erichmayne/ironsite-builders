@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ExternalLink } from 'lucide-react'
 
 const links = [
@@ -21,16 +20,11 @@ export default function Navbar() {
   }, [])
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'glass bg-eggshell-100/80 shadow-lg shadow-blue-900/5 border-b border-eggshell-300/50'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled
+        ? 'glass bg-eggshell-100/80 shadow-lg shadow-blue-900/5 border-b border-eggshell-300/50'
+        : 'bg-transparent'
+    }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5 group">
           <img src="/logo.png" alt="IronSite Builders" className="w-10 h-10 rounded-xl shadow-lg shadow-blue-600/25 group-hover:shadow-blue-600/40 transition-shadow" />
@@ -70,36 +64,29 @@ export default function Navbar() {
         </button>
       </nav>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass bg-eggshell-100/95 border-t border-eggshell-300/50 overflow-hidden"
-          >
-            <div className="px-4 sm:px-6 py-4 space-y-1">
-              {links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-sm font-medium text-blue-900/70 hover:text-blue-700 hover:bg-eggshell-200/50 rounded-lg transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a href="https://demo.ironsite.builders" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 mt-3 px-6 py-3 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-full">
-                <ExternalLink className="w-3.5 h-3.5" />
-                Live Demo
+      {mobileOpen && (
+        <div className="md:hidden glass bg-eggshell-100/95 border-t border-eggshell-300/50 overflow-hidden">
+          <div className="px-4 sm:px-6 py-4 space-y-1">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block px-4 py-3 text-sm font-medium text-blue-900/70 hover:text-blue-700 hover:bg-eggshell-200/50 rounded-lg transition-colors"
+              >
+                {link.label}
               </a>
-              <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 px-6 py-3 text-center text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-full">
-                Get Your Site
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+            ))}
+            <a href="https://demo.ironsite.builders" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 mt-3 px-6 py-3 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-full">
+              <ExternalLink className="w-3.5 h-3.5" />
+              Live Demo
+            </a>
+            <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 px-6 py-3 text-center text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-full">
+              Get Your Site
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
   )
 }
