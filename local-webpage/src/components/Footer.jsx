@@ -1,4 +1,4 @@
-import { Wrench, Code2, Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 
 const footerLinks = {
   Services: [
@@ -32,21 +32,15 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-blue-800/30">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2.5 mb-4">
-              <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                <Wrench className="w-3.5 h-3.5 text-white absolute -rotate-45 translate-x-[-2px] translate-y-[-1px]" strokeWidth={2.5} />
-                <Code2 className="w-3.5 h-3.5 text-blue-200 absolute rotate-12 translate-x-[2px] translate-y-[2px]" strokeWidth={2.5} />
-              </div>
-              <span className="font-display font-800 text-lg text-white tracking-tight">
-                Trade<span className="text-blue-400">Site</span>
-              </span>
+            <a href="#" className="flex items-center gap-2 mb-4">
+              <img src="/logo.png" alt="IronSite Builders" className="h-8 w-auto brightness-0 invert" />
             </a>
             <p className="text-sm text-blue-200/40 max-w-sm leading-relaxed mb-6">
               We build websites for the people who build everything else. Serving tradesmen across the greater Seattle area and beyond.
             </p>
             <div className="space-y-2">
-              <a href="mailto:hello@tradesitepro.com" className="flex items-center gap-2 text-sm text-blue-300/50 hover:text-blue-300 transition-colors">
-                <Mail className="w-4 h-4" /> hello@tradesitepro.com
+              <a href="mailto:hello@ironsite.builders" className="flex items-center gap-2 text-sm text-blue-300/50 hover:text-blue-300 transition-colors">
+                <Mail className="w-4 h-4" /> hello@ironsite.builders
               </a>
               <a href="tel:+12065551234" className="flex items-center gap-2 text-sm text-blue-300/50 hover:text-blue-300 transition-colors">
                 <Phone className="w-4 h-4" /> (206) 555-1234
@@ -77,7 +71,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8">
           <p className="text-xs text-blue-300/30">
-            &copy; {new Date().getFullYear()} TradeSite Pro. All rights reserved.
+            &copy; {new Date().getFullYear()} IronSite Builders. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-xs text-blue-300/30 hover:text-blue-300/60 transition-colors">Privacy</a>

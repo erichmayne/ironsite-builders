@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Wrench, Code2, ExternalLink } from 'lucide-react'
+import { Menu, X, ExternalLink } from 'lucide-react'
 
 const links = [
   { label: 'Services', href: '#services' },
@@ -32,14 +32,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shadow-lg shadow-blue-600/25 group-hover:shadow-blue-600/40 transition-shadow">
-            <Wrench className="w-4 h-4 text-white absolute -rotate-45 translate-x-[-2px] translate-y-[-1px]" strokeWidth={2.5} />
-            <Code2 className="w-4 h-4 text-blue-200 absolute rotate-12 translate-x-[2px] translate-y-[2px]" strokeWidth={2.5} />
-          </div>
-          <span className="font-display font-800 text-xl tracking-tight">
-            Trade<span className="text-blue-600">Site</span>
-          </span>
+        <a href="#" className="flex items-center gap-2 group">
+          <img src="/logo.png" alt="IronSite Builders" className="h-9 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-1">

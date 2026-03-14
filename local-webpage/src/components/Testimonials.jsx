@@ -6,7 +6,7 @@ const testimonials = [
   {
     name: 'Joe Martinez',
     trade: 'Plumber, Federal Way',
-    text: "I was getting maybe 5 calls a month off Craigslist. TradeSite built me a site and now I'm turning work away. Wish I'd done this 5 years ago.",
+    text: "I was getting maybe 5 calls a month off Craigslist. IronSite built me a site and now I'm turning work away. Wish I'd done this 5 years ago.",
     stars: 5,
     initials: 'JM',
   },
