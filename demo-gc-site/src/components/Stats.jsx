@@ -41,8 +41,8 @@ export default function Stats() {
         <div className="absolute inset-0 bg-stone-950/85" />
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
           {stats.map(({ value, suffix, label, decimals }, i) => (
             <motion.div
               key={label}
@@ -50,7 +50,7 @@ export default function Stats() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.15, duration: 0.5 }}
             >
-              <p className="font-display text-4xl sm:text-5xl text-gold-500 font-700 mb-2">
+              <p className="font-display text-3xl sm:text-4xl md:text-5xl text-gold-500 font-700 mb-2">
                 <Counter target={value} suffix={suffix} inView={inView} decimals={decimals} />
               </p>
               <p className="text-white/50 text-sm uppercase tracking-wider">{label}</p>

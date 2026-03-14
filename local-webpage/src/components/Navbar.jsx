@@ -31,7 +31,7 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5 group">
           <img src="/logo.png" alt="IronSite Builders" className="w-10 h-10 rounded-xl shadow-lg shadow-blue-600/25 group-hover:shadow-blue-600/40 transition-shadow" />
           <span className="font-display font-800 text-xl tracking-tight">
@@ -78,7 +78,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden glass bg-eggshell-100/95 border-t border-eggshell-300/50 overflow-hidden"
           >
-            <div className="px-6 py-4 space-y-1">
+            <div className="px-4 sm:px-6 py-4 space-y-1">
               {links.map((link) => (
                 <a
                   key={link.href}

@@ -40,7 +40,7 @@ export default function Services() {
 
   return (
     <section id="services" className="py-24 sm:py-32 bg-stone-50">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ export default function Services() {
         >
           <div className="h-[3px] w-16 bg-gold-500 mx-auto mb-6" />
           <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">What We Do</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-700">Our Services</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700">Our Services</h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200">
@@ -70,7 +70,7 @@ export default function Services() {
                 />
                 <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-stone-950/40 transition-colors duration-500" />
               </div>
-              <div className="p-7">
+              <div className="p-5 sm:p-7">
                 <h3 className="font-display text-xl font-600 mb-3 group-hover:text-gold-600 transition-colors">{title}</h3>
                 <p className="text-sm text-stone-500 leading-relaxed">{desc}</p>
               </div>

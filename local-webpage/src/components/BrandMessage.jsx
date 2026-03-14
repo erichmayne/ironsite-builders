@@ -11,7 +11,7 @@ export default function BrandMessage() {
       <div className="absolute inset-0 bg-gradient-to-b from-eggshell-100 via-blue-50/30 to-eggshell-100" />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-100/20 blur-[120px]" />
 
-      <div className="relative max-w-3xl mx-auto px-6 text-center" ref={ref}>
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center" ref={ref}>
         {/* Decorative quote mark */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -26,7 +26,7 @@ export default function BrandMessage() {
           initial={{ opacity: 0, y: 25 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.15, duration: 0.6 }}
-          className="font-display text-3xl sm:text-4xl font-800 tracking-tight leading-snug mb-6"
+          className="font-display text-2xl sm:text-3xl md:text-4xl font-800 tracking-tight leading-snug mb-6"
         >
           Your Work Speaks for Itself.
           <br />
@@ -59,7 +59,7 @@ export default function BrandMessage() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="font-display text-xl sm:text-2xl font-700 text-blue-900/80 italic"
+          className="font-display text-lg sm:text-xl md:text-2xl font-700 text-blue-900/80 italic"
         >
           Your reputation took years to build.
           <br />

@@ -30,12 +30,12 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section ref={ref} className="relative min-h-[100svh] flex items-center overflow-hidden pt-20">
       {/* Animated background blobs */}
-      <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-[10%] w-[500px] h-[500px] rounded-full bg-blue-200/30 blur-[120px] animate-float" />
-        <div className="absolute bottom-20 left-[5%] w-[400px] h-[400px] rounded-full bg-blue-300/20 blur-[100px] animate-float-delay" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-100/40 blur-[150px]" />
+      <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-blue-200/30 blur-[120px] animate-float" />
+        <div className="absolute bottom-20 left-[5%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-blue-300/20 blur-[100px] animate-float-delay" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] rounded-full bg-blue-100/40 blur-[150px]" />
       </motion.div>
 
       {/* Grid pattern overlay */}
@@ -44,7 +44,7 @@ export default function Hero() {
         backgroundSize: '60px 60px',
       }} />
 
-      <motion.div style={{ opacity }} className="relative max-w-7xl mx-auto px-6 py-20 lg:py-32">
+      <motion.div style={{ opacity }} className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 lg:py-32">
         <div className="max-w-4xl">
           {/* Badge */}
           <motion.div
@@ -62,7 +62,7 @@ export default function Hero() {
             variants={wordReveal}
             initial="hidden"
             animate="visible"
-            className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-800 leading-[0.95] tracking-tight mb-8"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-800 leading-[0.95] tracking-tight mb-6 sm:mb-8"
             style={{ perspective: '600px' }}
           >
             {['Websites', 'That', 'Work'].map((word, i) => (
@@ -87,7 +87,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.7 }}
-            className="text-lg sm:text-xl text-blue-900/60 max-w-2xl leading-relaxed mb-10"
+            className="text-base sm:text-lg md:text-xl text-blue-900/60 max-w-2xl leading-relaxed mb-8 sm:mb-10"
           >
             We build stunning, lightning-fast websites for plumbers, electricians, roofers,
             and every trade in between. Your skills deserve an online presence that
@@ -99,7 +99,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-14"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-14"
           >
             <a
               href="#pricing"
@@ -124,7 +124,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.8 }}
-            className="flex flex-wrap gap-6"
+            className="flex flex-wrap gap-3 sm:gap-6"
           >
             {badges.map(({ icon: Icon, label, accent }) => (
               <div key={label} className={`flex items-center gap-2 text-sm ${

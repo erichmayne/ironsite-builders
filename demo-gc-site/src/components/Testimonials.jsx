@@ -33,7 +33,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="py-24 sm:py-32 bg-stone-50">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -43,7 +43,7 @@ export default function Testimonials() {
         >
           <div className="h-[3px] w-16 bg-gold-500 mx-auto mb-6" />
           <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">Client Reviews</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-700">What Our Clients Say</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700">What Our Clients Say</h2>
         </motion.div>
 
         <div className="relative">
@@ -64,7 +64,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <blockquote className="font-display text-xl sm:text-2xl text-stone-800 leading-relaxed mb-8 italic">
+              <blockquote className="font-display text-base sm:text-xl md:text-2xl text-stone-800 leading-relaxed mb-8 italic">
                 &ldquo;{testimonials[idx].text}&rdquo;
               </blockquote>
 

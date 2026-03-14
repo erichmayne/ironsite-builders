@@ -12,7 +12,7 @@ export default function Portfolio() {
     <section id="portfolio" className="relative py-24 sm:py-32 bg-blue-950 noise overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-950 via-blue-900/95 to-blue-950" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -23,7 +23,7 @@ export default function Portfolio() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-800/50 border border-blue-700/50 text-blue-300 text-sm font-semibold mb-4">
             Our Work
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl font-800 tracking-tight text-white mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-800 tracking-tight text-white mb-4">
             Sites That <span className="text-blue-400">Actually Perform</span>
           </h2>
           <p className="text-lg text-blue-200/50 max-w-2xl mx-auto">
@@ -53,7 +53,7 @@ export default function Portfolio() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-blue-950/80 hidden lg:block" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 to-transparent lg:hidden" />
               </div>
-              <div className="p-8 lg:p-10 flex flex-col justify-center">
+              <div className="p-5 sm:p-8 lg:p-10 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-bold uppercase tracking-wider">
                     Live Demo

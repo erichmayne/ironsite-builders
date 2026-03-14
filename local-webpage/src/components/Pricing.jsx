@@ -65,7 +65,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="relative py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -76,7 +76,7 @@ export default function Pricing() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/50 text-blue-600 text-sm font-semibold mb-4">
             Simple Pricing
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl font-800 tracking-tight mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-800 tracking-tight mb-4">
             Invest in Your <span className="text-gradient">Digital Storefront</span>
           </h2>
           <p className="text-lg text-blue-900/50 max-w-2xl mx-auto">
@@ -93,7 +93,7 @@ export default function Pricing() {
               transition={{ delay: i * 0.12, duration: 0.6, type: 'spring' }}
               className={`relative group rounded-2xl transition-all duration-500 hover:-translate-y-2 ${
                 popular
-                  ? 'bg-gradient-to-b from-blue-600 to-blue-800 text-white shadow-2xl shadow-blue-600/25 scale-[1.02] lg:scale-105'
+                  ? 'bg-gradient-to-b from-blue-600 to-blue-800 text-white shadow-2xl shadow-blue-600/25 lg:scale-105'
                   : 'bg-white/60 border border-eggshell-300/50 hover:bg-white hover:shadow-xl hover:shadow-blue-900/5'
               }`}
             >
@@ -103,7 +103,7 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="p-8">
+              <div className="p-5 sm:p-8">
                 <h3 className={`font-display text-xl font-700 mb-2 ${popular ? 'text-white' : ''}`}>{name}</h3>
                 <p className={`text-sm mb-6 ${popular ? 'text-blue-100/70' : 'text-blue-900/50'}`}>{desc}</p>
 

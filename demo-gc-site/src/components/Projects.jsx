@@ -48,7 +48,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 sm:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -58,7 +58,7 @@ export default function Projects() {
         >
           <div className="h-[3px] w-16 bg-gold-500 mx-auto mb-6" />
           <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">Our Portfolio</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-700">Featured Projects</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700">Featured Projects</h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -78,7 +78,7 @@ export default function Projects() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent" />
               <div className="absolute inset-0 bg-stone-950/0 group-hover:bg-stone-950/30 transition-colors duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                 <span className="text-gold-400 text-xs uppercase tracking-[0.2em] font-600">{project.category}</span>
                 <h3 className="font-display text-xl text-white font-600 mt-1 group-hover:text-gold-300 transition-colors">{project.title}</h3>
               </div>
@@ -97,14 +97,14 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-stone-950/90 flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 bg-stone-950/90 flex items-center justify-center p-3 sm:p-6"
             onClick={() => setSelected(null)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 40 }}
-              className="bg-white max-w-3xl w-full overflow-hidden shadow-2xl"
+              className="bg-white max-w-3xl w-full overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative h-80 sm:h-96">
@@ -116,9 +116,9 @@ export default function Projects() {
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              <div className="p-8">
+              <div className="p-5 sm:p-8">
                 <span className="text-gold-600 text-xs uppercase tracking-[0.2em] font-600">{selected.category}</span>
-                <h3 className="font-display text-2xl font-700 mt-2 mb-4">{selected.title}</h3>
+                <h3 className="font-display text-lg sm:text-2xl font-700 mt-2 mb-4">{selected.title}</h3>
                 <p className="text-stone-600 leading-relaxed">{selected.desc}</p>
               </div>
             </motion.div>

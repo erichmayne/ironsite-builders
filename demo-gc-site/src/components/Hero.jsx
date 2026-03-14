@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+    <section className="relative h-[100svh] min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-stone-950/30" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="max-w-3xl">
           {/* Gold accent line */}
           <motion.div
@@ -29,7 +29,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-gold-400 uppercase tracking-[0.3em] text-sm font-600 mb-4"
+            className="text-gold-400 uppercase tracking-[0.15em] sm:tracking-[0.3em] text-xs sm:text-sm font-600 mb-4"
           >
             Seattle Metro&apos;s Trusted Builder
           </motion.p>
@@ -38,7 +38,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl text-white font-700 leading-[1.05] mb-6"
+            className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-700 leading-[1.05] mb-6"
           >
             Building with
             <br />
@@ -49,7 +49,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            className="text-lg sm:text-xl text-white/60 max-w-xl leading-relaxed mb-10"
+            className="text-base sm:text-lg md:text-xl text-white/60 max-w-xl leading-relaxed mb-8 sm:mb-10"
           >
             Residential and commercial general contracting across the greater Seattle
             area. Over 20 years of building homes, businesses, and lasting relationships.

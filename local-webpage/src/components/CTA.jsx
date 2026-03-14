@@ -8,13 +8,13 @@ export default function CTA() {
 
   return (
     <section id="contact" className="relative py-24 sm:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, type: 'spring' }}
-          className="relative rounded-3xl bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 p-10 sm:p-16 overflow-hidden noise"
+          className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 p-6 sm:p-10 md:p-16 overflow-hidden noise"
         >
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-blue-400/20 blur-[100px] -translate-y-1/2 translate-x-1/4" />
@@ -31,7 +31,7 @@ export default function CTA() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white tracking-tight mb-6"
+              className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-800 text-white tracking-tight mb-6"
             >
               Ready to Stop Losing
               <br />
@@ -62,7 +62,7 @@ export default function CTA() {
                 Call (206) 555-1234
               </a>
               <a
-                href="mailto:hello@tradeSitepro.com"
+                href="mailto:hello@ironsite.builders"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20 transition-all"
               >
                 Get Free Quote

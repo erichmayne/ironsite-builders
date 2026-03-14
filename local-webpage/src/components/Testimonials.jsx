@@ -42,7 +42,7 @@ export default function Testimonials() {
       {/* Subtle background */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-100/30 blur-[120px] -translate-y-1/2" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -53,7 +53,7 @@ export default function Testimonials() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/50 text-blue-600 text-sm font-semibold mb-4">
             Testimonials
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl font-800 tracking-tight mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-800 tracking-tight mb-4">
             Don't Take Our Word. <span className="text-gradient">Take Theirs.</span>
           </h2>
         </motion.div>
@@ -65,7 +65,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group relative p-7 rounded-2xl bg-white/60 border border-eggshell-300/50 hover:bg-white hover:shadow-xl hover:shadow-blue-900/5 hover:border-blue-200/40 transition-all duration-500"
+              className="group relative p-5 sm:p-7 rounded-2xl bg-white/60 border border-eggshell-300/50 hover:bg-white hover:shadow-xl hover:shadow-blue-900/5 hover:border-blue-200/40 transition-all duration-500"
             >
               <Quote className="absolute top-5 right-5 w-10 h-10 text-blue-100 group-hover:text-blue-200 transition-colors" />
 

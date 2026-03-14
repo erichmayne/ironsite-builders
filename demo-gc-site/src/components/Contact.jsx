@@ -9,8 +9,8 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 sm:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-16">
           {/* Info side */}
           <motion.div
             ref={ref}
@@ -20,7 +20,7 @@ export default function Contact() {
           >
             <div className="h-[3px] w-16 bg-gold-500 mb-6" />
             <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">Get In Touch</p>
-            <h2 className="font-display text-4xl sm:text-5xl font-700 leading-tight mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700 leading-tight mb-6">
               Ready to Start
               <br />Your Project?
             </h2>
@@ -75,7 +75,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-stone-50 p-8 sm:p-10">
+            <div className="bg-stone-50 p-5 sm:p-8 md:p-10">
               <h3 className="font-display text-2xl font-700 mb-6">Request a Free Estimate</h3>
 
               {submitted ? (

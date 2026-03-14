@@ -60,7 +60,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -71,7 +71,7 @@ export default function Services() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/50 text-blue-600 text-sm font-semibold mb-4">
             What We Build
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl font-800 tracking-tight mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-800 tracking-tight mb-4">
             Everything Your Trade <span className="text-gradient">Needs Online</span>
           </h2>
           <p className="text-lg text-blue-900/50 max-w-2xl mx-auto">

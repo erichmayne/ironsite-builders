@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html, body { scroll-behavior: smooth; overflow-x: hidden; }
   ::selection { background-color: #B8860B; color: white; }
 }

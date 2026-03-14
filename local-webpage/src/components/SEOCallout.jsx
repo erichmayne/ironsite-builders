@@ -19,7 +19,7 @@ export default function SEOCallout() {
     <section className="relative py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-eggshell-100 via-blue-50/40 to-eggshell-100" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Visual */}
           <motion.div
@@ -93,7 +93,7 @@ export default function SEOCallout() {
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ delay: 1, type: 'spring' }}
-              className="absolute -bottom-6 -right-4 sm:right-8 bg-white rounded-xl shadow-xl shadow-blue-900/10 border border-eggshell-300/60 px-5 py-3"
+              className="absolute -bottom-6 right-2 sm:right-8 bg-white rounded-xl shadow-xl shadow-blue-900/10 border border-eggshell-300/60 px-4 sm:px-5 py-3"
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
@@ -118,7 +118,7 @@ export default function SEOCallout() {
               SEO That Actually Works
             </span>
 
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-800 tracking-tight mb-6 leading-tight">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-800 tracking-tight mb-6 leading-tight">
               Show Up <span className="text-gradient">First</span> When
               <br />Customers Search
             </h2>
@@ -130,7 +130,7 @@ export default function SEOCallout() {
               from the code structure to the content strategy to the technical performance.
             </p>
 
-            <ul className="grid sm:grid-cols-2 gap-3 mb-8">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {seoFeatures.map((feature) => (
                 <li key={feature} className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" strokeWidth={2} />

@@ -28,7 +28,7 @@ export default function Footer() {
     <footer className="relative pt-16 pb-8 bg-blue-950 noise overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-950 to-blue-950/95" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-blue-800/30">
           {/* Brand */}
           <div className="lg:col-span-2">
