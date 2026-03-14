@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { ArrowRight, Sparkles, Zap, Shield, ExternalLink } from 'lucide-react'
 
 const badges = [
@@ -8,10 +7,8 @@ const badges = [
 ]
 
 export default function Hero() {
-  const ref = useRef(null)
-
   return (
-    <section ref={ref} className="relative min-h-[100svh] flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden pt-20">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-blue-200/30 blur-[120px] animate-float" />
         <div className="absolute bottom-20 left-[5%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-blue-300/20 blur-[100px] animate-float-delay" />
@@ -25,12 +22,12 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 lg:py-32">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-sm font-medium mb-8">
+          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 text-sm font-medium mb-8">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
             Now Booking for Spring 2026
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-800 leading-[0.95] tracking-tight mb-6 sm:mb-8">
+          <h1 className="animate-fade-in-up animate-delay-100 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-800 leading-[0.95] tracking-tight mb-6 sm:mb-8">
             Websites That Work
             <br />
             <span className="text-blue-900/40">As Hard As</span>
@@ -38,13 +35,13 @@ export default function Hero() {
             <span className="text-gradient">You Do.</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-blue-900/60 max-w-2xl leading-relaxed mb-8 sm:mb-10">
+          <p className="animate-fade-in-up animate-delay-200 text-base sm:text-lg md:text-xl text-blue-900/60 max-w-2xl leading-relaxed mb-8 sm:mb-10">
             We build stunning, lightning-fast websites for plumbers, electricians, roofers,
             and every trade in between. Your skills deserve an online presence that
             actually brings in customers.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-14">
+          <div className="animate-fade-in-up animate-delay-300 flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-14">
             <a
               href="#pricing"
               className="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-full shadow-xl shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all"
@@ -63,7 +60,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-3 sm:gap-6">
+          <div className="animate-fade-in-up animate-delay-400 flex flex-wrap gap-3 sm:gap-6">
             {badges.map(({ icon: Icon, label, accent }) => (
               <div key={label} className={`flex items-center gap-2 text-sm ${
                 accent
@@ -84,7 +81,7 @@ export default function Hero() {
         </div>
 
         <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-[5%]">
-          <div className="animate-float relative w-[360px]">
+          <div className="animate-fade-in-up animate-delay-300 animate-float relative w-[360px]">
             <div className="rounded-2xl bg-white shadow-2xl shadow-blue-900/10 border border-eggshell-300/60 overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-3 bg-eggshell-200/50 border-b border-eggshell-300/50">
                 <div className="flex gap-1.5">
@@ -116,7 +113,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute -left-16 top-24 bg-white rounded-xl shadow-xl shadow-blue-900/10 border border-eggshell-300/60 px-4 py-3 flex items-center gap-3">
+            <div className="animate-fade-in-up animate-delay-500 absolute -left-16 top-24 bg-white rounded-xl shadow-xl shadow-blue-900/10 border border-eggshell-300/60 px-4 py-3 flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
                 <span className="text-green-600 text-sm">✓</span>
               </div>

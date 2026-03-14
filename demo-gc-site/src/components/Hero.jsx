@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
@@ -17,24 +18,49 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="max-w-3xl">
           {/* Gold accent line */}
-          <div className="h-[3px] w-20 bg-gold-500 mb-8" />
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: 80 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="h-[3px] bg-gold-500 mb-8"
+          />
 
-          <p className="text-gold-400 uppercase tracking-[0.15em] sm:tracking-[0.3em] text-xs sm:text-sm font-600 mb-4">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-gold-400 uppercase tracking-[0.15em] sm:tracking-[0.3em] text-xs sm:text-sm font-600 mb-4"
+          >
             Seattle Metro&apos;s Trusted Builder
-          </p>
+          </motion.p>
 
-          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-700 leading-[1.05] mb-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-700 leading-[1.05] mb-6"
+          >
             Building with
             <br />
             <span className="text-gold-400">Purpose & Precision</span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-xl leading-relaxed mb-8 sm:mb-10">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+            className="text-base sm:text-lg md:text-xl text-white/60 max-w-xl leading-relaxed mb-8 sm:mb-10"
+          >
             Residential and commercial general contracting across the greater Seattle
             area. Over 20 years of building homes, businesses, and lasting relationships.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
             <a
               href="#contact"
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gold-500 text-white font-600 uppercase tracking-wider text-sm hover:bg-gold-600 transition-all"
@@ -48,15 +74,24 @@ export default function Hero() {
             >
               View Our Work
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
         <span className="text-[10px] text-white/30 uppercase tracking-[0.3em]">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-gold-500 to-transparent animate-bounce" />
-      </div>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-px h-10 bg-gradient-to-b from-gold-500 to-transparent"
+        />
+      </motion.div>
     </section>
   )
 }

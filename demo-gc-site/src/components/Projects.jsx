@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { ArrowRight, X } from 'lucide-react'
 
 const projects = [
@@ -42,21 +42,32 @@ const projects = [
 ]
 
 export default function Projects() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
   const [selected, setSelected] = useState(null)
 
   return (
     <section id="projects" className="py-24 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <div className="h-[3px] w-16 bg-gold-500 mx-auto mb-6" />
           <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">Our Portfolio</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700">Featured Projects</h2>
-        </div>
+        </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((project) => (
-            <button
+          {projects.map((project, i) => (
+            <motion.button
               key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
               onClick={() => setSelected(project)}
               className="group text-left relative overflow-hidden aspect-[4/3]"
             >
@@ -74,12 +85,12 @@ export default function Projects() {
               <div className="absolute top-4 right-4 w-10 h-10 border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                 <ArrowRight className="w-4 h-4 text-white -rotate-45" />
               </div>
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
 
-      {/* Lightbox — AnimatePresence kept for functional open/close animation */}
+      {/* Lightbox */}
       <AnimatePresence>
         {selected && (
           <motion.div

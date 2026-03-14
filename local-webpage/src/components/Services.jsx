@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Globe, Smartphone, Search, CalendarCheck, Star, BarChart3, MessageSquare, Camera } from 'lucide-react'
 
 const services = [
@@ -53,10 +55,19 @@ const services = [
 ]
 
 export default function Services() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
   return (
     <section id="services" className="relative py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/50 text-blue-600 text-sm font-semibold mb-4">
             What We Build
           </span>
@@ -66,11 +77,18 @@ export default function Services() {
           <p className="text-lg text-blue-900/50 max-w-2xl mx-auto">
             From the first Google search to the booked appointment — we build the entire digital pipeline that turns strangers into paying customers.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map(({ icon: Icon, title, desc, color, featured }) => (
-            <div key={title} className="group relative">
+          {services.map(({ icon: Icon, title, desc, color, featured }, i) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="group relative"
+              style={{ perspective: '800px' }}
+            >
               <div className={`relative h-full p-6 rounded-2xl transition-all duration-500 hover:-translate-y-1 ${
                 featured
                   ? 'bg-gradient-to-br from-blue-700 to-blue-900 text-white shadow-xl shadow-blue-700/20 border border-blue-600/30 hover:shadow-2xl hover:shadow-blue-700/30 ring-1 ring-blue-500/20'
@@ -98,8 +116,11 @@ export default function Services() {
                 }`}>
                   {desc}
                 </p>
+                {!featured && (
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

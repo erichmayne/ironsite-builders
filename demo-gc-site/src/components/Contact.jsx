@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react'
 
 export default function Contact() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
   const [submitted, setSubmitted] = useState(false)
 
   return (
@@ -9,7 +12,12 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-16">
           {/* Info side */}
-          <div>
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
             <div className="h-[3px] w-16 bg-gold-500 mb-6" />
             <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">Get In Touch</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700 leading-tight mb-6">
@@ -59,10 +67,14 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Form side */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <div className="bg-stone-50 p-5 sm:p-8 md:p-10">
               <h3 className="font-display text-2xl font-700 mb-6">Request a Free Estimate</h3>
 
@@ -120,7 +132,7 @@ export default function Contact() {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

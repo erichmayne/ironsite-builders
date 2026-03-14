@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 
 const testimonials = [
@@ -23,6 +24,8 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
   const [idx, setIdx] = useState(0)
 
   const prev = () => setIdx((i) => (i === 0 ? testimonials.length - 1 : i - 1))
@@ -31,32 +34,47 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-24 sm:py-32 bg-stone-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <div className="h-[3px] w-16 bg-gold-500 mx-auto mb-6" />
           <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">Client Reviews</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700">What Our Clients Say</h2>
-        </div>
+        </motion.div>
 
         <div className="relative">
-          <div className="text-center transition-opacity duration-400 ease-in-out">
-            {/* Stars */}
-            <div className="flex justify-center gap-1 mb-8">
-              {[...Array(testimonials[idx].stars)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-gold-500 text-gold-500" />
-              ))}
-            </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4 }}
+              className="text-center"
+            >
+              {/* Stars */}
+              <div className="flex justify-center gap-1 mb-8">
+                {[...Array(testimonials[idx].stars)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-gold-500 text-gold-500" />
+                ))}
+              </div>
 
-            {/* Quote */}
-            <blockquote className="font-display text-base sm:text-xl md:text-2xl text-stone-800 leading-relaxed mb-8 italic">
-              &ldquo;{testimonials[idx].text}&rdquo;
-            </blockquote>
+              {/* Quote */}
+              <blockquote className="font-display text-base sm:text-xl md:text-2xl text-stone-800 leading-relaxed mb-8 italic">
+                &ldquo;{testimonials[idx].text}&rdquo;
+              </blockquote>
 
-            {/* Attribution */}
-            <div>
-              <p className="font-600 text-stone-900">{testimonials[idx].name}</p>
-              <p className="text-sm text-gold-600">{testimonials[idx].project}</p>
-            </div>
-          </div>
+              {/* Attribution */}
+              <div>
+                <p className="font-600 text-stone-900">{testimonials[idx].name}</p>
+                <p className="text-sm text-gold-600">{testimonials[idx].project}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Nav arrows */}
           <div className="flex justify-center gap-3 mt-10">

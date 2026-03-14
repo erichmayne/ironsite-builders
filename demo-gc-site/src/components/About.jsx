@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Shield, Award, Clock, Users } from 'lucide-react'
 
 const values = [
@@ -8,12 +10,21 @@ const values = [
 ]
 
 export default function About() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
   return (
     <section id="about" className="py-24 sm:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image side */}
-          <div className="relative">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="relative"
+          >
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&h=500&fit=crop&q=80"
@@ -28,10 +39,14 @@ export default function About() {
               <p className="font-display text-3xl sm:text-4xl text-gold-500 font-700">20+</p>
               <p className="text-white/60 text-sm uppercase tracking-wider mt-1">Years in Business</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Text side */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             <div className="h-[3px] w-16 bg-gold-500 mb-6" />
             <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">About Summit</p>
 
@@ -64,7 +79,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
