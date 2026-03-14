@@ -27,8 +27,9 @@ export default function About() {
           >
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&h=500&fit=crop&q=80"
+                src="/img/about.jpg"
                 alt="Construction team at work"
+                loading="lazy"
                 className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
               />
               <div className="absolute -bottom-6 -right-6 w-48 h-48 border-[3px] border-gold-500 hidden lg:block" />

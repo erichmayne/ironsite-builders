@@ -5,32 +5,32 @@ const services = [
   {
     title: 'Kitchen & Bath Remodels',
     desc: 'Complete gut renovations to cosmetic refreshes. Custom cabinetry, tile, countertops, and fixtures — designed and installed to last.',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop&q=80',
+    image: '/img/svc-renovation.jpg',
   },
   {
     title: 'Home Additions',
     desc: 'Need more space? We build room additions, second stories, ADUs, and garage conversions that match your existing home seamlessly.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop&q=80',
+    image: '/img/svc-commercial.jpg',
   },
   {
     title: 'Commercial Build-Outs',
     desc: 'Tenant improvements, retail spaces, restaurants, and offices. We work within your timeline and budget to get your doors open.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&q=80',
+    image: '/img/svc-development.jpg',
   },
   {
     title: 'New Construction',
     desc: 'Custom homes built from the ground up. We manage every phase — from permits and foundation to finishing touches and final walk-through.',
-    image: 'https://images.unsplash.com/photo-1513467535987-db81bc0d0222?w=600&h=400&fit=crop&q=80',
+    image: '/img/svc-interior.jpg',
   },
   {
     title: 'Exterior & Siding',
     desc: 'Siding replacement, window installations, decks, patios, and exterior repairs. Built to handle Pacific Northwest weather.',
-    image: 'https://images.unsplash.com/photo-1597079910443-49a3f4b3e28b?w=600&h=400&fit=crop&q=80',
+    image: '/img/svc-restoration.jpg',
   },
   {
     title: 'Structural Repairs',
     desc: 'Foundation work, load-bearing wall modifications, seismic retrofitting, and rot repair. We fix what others are afraid to touch.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&q=80',
+    image: '/img/svc-sustainability.jpg',
   },
 ]
 
@@ -66,6 +66,7 @@ export default function Services() {
                 <img
                   src={image}
                   alt={title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-stone-950/40 transition-colors duration-500" />

@@ -1,16 +1,18 @@
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TradeMarquee from './components/TradeMarquee'
-import BrandMessage from './components/BrandMessage'
-import Stats from './components/Stats'
-import Services from './components/Services'
-import SEOCallout from './components/SEOCallout'
-import Process from './components/Process'
-import Portfolio from './components/Portfolio'
-import Testimonials from './components/Testimonials'
-import Pricing from './components/Pricing'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+
+const BrandMessage = lazy(() => import('./components/BrandMessage'))
+const Stats = lazy(() => import('./components/Stats'))
+const Services = lazy(() => import('./components/Services'))
+const SEOCallout = lazy(() => import('./components/SEOCallout'))
+const Process = lazy(() => import('./components/Process'))
+const Portfolio = lazy(() => import('./components/Portfolio'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const Pricing = lazy(() => import('./components/Pricing'))
+const CTA = lazy(() => import('./components/CTA'))
+const Footer = lazy(() => import('./components/Footer'))
 
 export default function App() {
   return (
@@ -18,16 +20,18 @@ export default function App() {
       <Navbar />
       <Hero />
       <TradeMarquee />
-      <BrandMessage />
-      <Stats />
-      <Services />
-      <SEOCallout />
-      <Process />
-      <Portfolio />
-      <Testimonials />
-      <Pricing />
-      <CTA />
-      <Footer />
+      <Suspense fallback={null}>
+        <BrandMessage />
+        <Stats />
+        <Services />
+        <SEOCallout />
+        <Process />
+        <Portfolio />
+        <Testimonials />
+        <Pricing />
+        <CTA />
+        <Footer />
+      </Suspense>
     </div>
   )
 }

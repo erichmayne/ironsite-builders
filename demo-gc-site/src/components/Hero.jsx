@@ -7,9 +7,10 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop&q=80"
+          src="/img/hero.jpg"
           alt="Construction site"
           className="w-full h-full object-cover"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/70 to-stone-950/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-stone-950/30" />

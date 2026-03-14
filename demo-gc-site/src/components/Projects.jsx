@@ -6,37 +6,37 @@ const projects = [
   {
     title: 'Wallingford Craftsman Renovation',
     category: 'Residential',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&q=80',
+    image: '/img/proj-meridian.jpg',
     desc: 'Full interior renovation of a 1920s craftsman. Opened floor plan, new kitchen, and restored original millwork throughout.',
   },
   {
     title: 'Capitol Hill Mixed-Use',
     category: 'Commercial',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop&q=80',
+    image: '/img/proj-cascade.jpg',
     desc: 'Ground-up 4-story mixed-use building. Retail on the ground floor with 12 residential units above.',
   },
   {
     title: 'Magnolia Custom Home',
     category: 'New Build',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop&q=80',
+    image: '/img/proj-harbor.jpg',
     desc: '3,800 sq ft custom home with Puget Sound views. Engineered for the hillside lot with a 3-car garage below grade.',
   },
   {
     title: 'Fremont Restaurant Build-Out',
     category: 'Commercial',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&q=80',
+    image: '/img/proj-terrace.jpg',
     desc: 'Complete restaurant build-out in a historic Fremont building. Commercial kitchen, bar, and 80-seat dining room.',
   },
   {
     title: 'Ballard ADU + Deck',
     category: 'Residential',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop&q=80',
+    image: '/img/proj-bridge.jpg',
     desc: 'Detached 650 sq ft ADU with a connected deck and outdoor kitchen. Permitted and built in 4 months.',
   },
   {
     title: 'Bellevue Office Remodel',
     category: 'Commercial',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&q=80',
+    image: '/img/proj-pinnacle.jpg',
     desc: '8,000 sq ft office space modernization. Open floor plan, conference rooms, and break area with exposed concrete.',
   },
 ]
@@ -74,6 +74,7 @@ export default function Projects() {
               <img
                 src={project.image}
                 alt={project.title}
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent" />

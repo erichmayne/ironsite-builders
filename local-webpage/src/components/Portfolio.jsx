@@ -46,7 +46,8 @@ export default function Portfolio() {
             <div className="grid lg:grid-cols-2">
               <div className="relative h-64 lg:h-auto overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=500&fit=crop&q=80"
+                  src="/img/portfolio-demo.jpg"
+                  loading="lazy"
                   alt="Summit General Contractors demo"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />

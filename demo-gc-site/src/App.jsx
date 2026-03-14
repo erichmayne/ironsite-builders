@@ -1,25 +1,29 @@
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
-import Projects from './components/Projects'
-import Stats from './components/Stats'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+
+const About = lazy(() => import('./components/About'))
+const Services = lazy(() => import('./components/Services'))
+const Projects = lazy(() => import('./components/Projects'))
+const Stats = lazy(() => import('./components/Stats'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const Contact = lazy(() => import('./components/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
 
 export default function App() {
   return (
     <>
       <Navbar />
       <Hero />
-      <About />
-      <Services />
-      <Projects />
-      <Stats />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <Suspense fallback={null}>
+        <About />
+        <Services />
+        <Projects />
+        <Stats />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </Suspense>
     </>
   )
 }

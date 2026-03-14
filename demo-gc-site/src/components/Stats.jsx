@@ -34,8 +34,9 @@ export default function Stats() {
     <section className="relative py-20 overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?w=1920&h=600&fit=crop&q=80"
+          src="/img/stats-bg.jpg"
           alt="Construction"
+          loading="lazy"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-stone-950/85" />
