@@ -32,8 +32,11 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
-          <img src="/logo.png" alt="IronSite Builders" className="h-9 w-auto" />
+        <a href="#" className="flex items-center gap-2.5 group">
+          <img src="/logo.png" alt="IronSite Builders" className="w-10 h-10 rounded-xl shadow-lg shadow-blue-600/25 group-hover:shadow-blue-600/40 transition-shadow" />
+          <span className="font-display font-800 text-xl tracking-tight">
+            Iron<span className="text-blue-600">Site</span>
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">

@@ -32,8 +32,11 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-blue-800/30">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="IronSite Builders" className="h-8 w-auto brightness-0 invert" />
+            <a href="#" className="flex items-center gap-2.5 mb-4">
+              <img src="/logo.png" alt="IronSite Builders" className="w-9 h-9 rounded-xl" />
+              <span className="font-display font-800 text-lg text-white tracking-tight">
+                Iron<span className="text-blue-400">Site</span>
+              </span>
             </a>
             <p className="text-sm text-blue-200/40 max-w-sm leading-relaxed mb-6">
               We build websites for the people who build everything else. Serving tradesmen across the greater Seattle area and beyond.
