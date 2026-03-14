@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
-const DEMO_URL = 'http://localhost:5175'
+const DEMO_URL = 'https://demo.ironsite.builders'
 
 export default function Portfolio() {
   const ref = useRef(null)

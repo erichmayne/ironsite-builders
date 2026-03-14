@@ -56,7 +56,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <a href="http://localhost:5175" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-full hover:bg-blue-100 hover:border-blue-300 transition-all">
+          <a href="https://demo.ironsite.builders" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-full hover:bg-blue-100 hover:border-blue-300 transition-all">
             <ExternalLink className="w-3.5 h-3.5" />
             Live Demo
           </a>
@@ -92,7 +92,7 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a href="http://localhost:5175" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 mt-3 px-6 py-3 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-full">
+              <a href="https://demo.ironsite.builders" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 mt-3 px-6 py-3 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-full">
                 <ExternalLink className="w-3.5 h-3.5" />
                 Live Demo
               </a>
