@@ -1,136 +1,183 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react'
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
 
 export default function Contact() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
-  const [submitted, setSubmitted] = useState(false)
+  const [tab, setTab] = useState('homeowner')
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-white">
+    <section id="contact" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-16">
-          {/* Info side */}
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="h-[3px] w-16 bg-gold-500 mb-6" />
-            <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">Get In Touch</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700 leading-tight mb-6">
-              Ready to Start
-              <br />Your Project?
-            </h2>
-            <p className="text-stone-600 leading-relaxed mb-10">
-              Whether you have a detailed plan or just an idea, we&apos;re here to help.
-              Give us a call or fill out the form for a free, no-obligation estimate.
-            </p>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full bg-accent-100 text-accent-700 text-sm font-600 mb-4">
+            Get Started
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700 text-navy-900 mb-4">
+            Ready to Get Started?
+          </h2>
+          <p className="text-navy-500 text-lg max-w-2xl mx-auto">
+            Whether you need a pro for your home or you <em>are</em> the pro — we&apos;d love to hear from you.
+          </p>
+        </motion.div>
 
-            <div className="space-y-5 mb-10">
-              <a href="tel:+12066604218" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-stone-950 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-600 transition-colors">
-                  <Phone className="w-5 h-5 text-gold-500 group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <p className="text-xs text-stone-400 uppercase tracking-wider">Call Us Directly</p>
-                  <p className="text-lg font-600">(206) 660-4218</p>
-                </div>
-              </a>
-              <a href="mailto:info@summitgc.com" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-stone-950 flex items-center justify-center flex-shrink-0 group-hover:bg-gold-600 transition-colors">
-                  <Mail className="w-5 h-5 text-gold-500 group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <p className="text-xs text-stone-400 uppercase tracking-wider">Email</p>
-                  <p className="text-lg font-600">info@summitgc.com</p>
-                </div>
-              </a>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-stone-950 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-gold-500" />
-                </div>
-                <div>
-                  <p className="text-xs text-stone-400 uppercase tracking-wider">Service Area</p>
-                  <p className="text-lg font-600">Greater Seattle Metro</p>
-                </div>
+        <div className="grid lg:grid-cols-5 gap-10 sm:gap-14">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="lg:col-span-3"
+          >
+            <div className="flex gap-2 mb-6 bg-navy-50 p-1 rounded-full w-fit">
+              <button
+                onClick={() => setTab('homeowner')}
+                className={`px-5 py-2.5 rounded-full text-sm font-600 transition-all ${
+                  tab === 'homeowner'
+                    ? 'bg-accent-500 text-white shadow-md'
+                    : 'text-navy-500 hover:text-navy-700'
+                }`}
+              >
+                I Need a Pro
+              </button>
+              <button
+                onClick={() => setTab('pro')}
+                className={`px-5 py-2.5 rounded-full text-sm font-600 transition-all ${
+                  tab === 'pro'
+                    ? 'bg-navy-800 text-white shadow-md'
+                    : 'text-navy-500 hover:text-navy-700'
+                }`}
+              >
+                I Am a Pro
+              </button>
+            </div>
+
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 placeholder:text-navy-300 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 placeholder:text-navy-300 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all"
+                />
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-stone-950 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-gold-500" />
-                </div>
-                <div>
-                  <p className="text-xs text-stone-400 uppercase tracking-wider">Hours</p>
-                  <p className="text-lg font-600">Mon – Fri, 7 AM – 6 PM</p>
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 placeholder:text-navy-300 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all"
+              />
+              {tab === 'homeowner' ? (
+                <>
+                  <select className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all appearance-none bg-white">
+                    <option value="">What type of project?</option>
+                    <option>Kitchen & Bath</option>
+                    <option>Roofing & Gutters</option>
+                    <option>Decks & Patios</option>
+                    <option>Painting</option>
+                    <option>Landscaping & Hardscape</option>
+                    <option>Flooring</option>
+                    <option>Windows & Doors</option>
+                    <option>Structural & Repairs</option>
+                    <option>Handyman</option>
+                    <option>Other</option>
+                  </select>
+                  <textarea
+                    rows={3}
+                    placeholder="Tell us about your project..."
+                    className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 placeholder:text-navy-300 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all resize-none"
+                  />
+                </>
+              ) : (
+                <>
+                  <input
+                    type="text"
+                    placeholder="Your Trade / Specialty"
+                    className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 placeholder:text-navy-300 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Service Area (City / Zip)"
+                    className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 placeholder:text-navy-300 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all"
+                  />
+                  <textarea
+                    rows={3}
+                    placeholder="Tell us about your business..."
+                    className="w-full px-4 py-3.5 rounded-xl border border-navy-200 text-navy-800 placeholder:text-navy-300 focus:border-accent-400 focus:ring-2 focus:ring-accent-100 outline-none transition-all resize-none"
+                  />
+                </>
+              )}
+              <button
+                type="submit"
+                className={`group w-full flex items-center justify-center gap-2 py-4 rounded-full text-white font-600 text-base transition-all shadow-lg ${
+                  tab === 'homeowner'
+                    ? 'bg-accent-500 hover:bg-accent-600 shadow-accent-500/25'
+                    : 'bg-navy-800 hover:bg-navy-900 shadow-navy-800/25'
+                }`}
+              >
+                {tab === 'homeowner' ? 'Find My Pro' : 'Apply to Join'}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </form>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="lg:col-span-2 space-y-6"
+          >
+            <div className="bg-navy-50 rounded-2xl p-6 sm:p-8">
+              <h3 className="font-display text-lg font-700 text-navy-800 mb-5">Get in Touch</h3>
+              <div className="space-y-5">
+                <a href="tel:2407802608" className="flex items-start gap-4 group">
+                  <div className="w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-4 h-4 text-accent-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-navy-400 mb-0.5">Call Us</p>
+                    <p className="font-600 text-navy-800 group-hover:text-accent-600 transition-colors">(240) 780-2608</p>
+                  </div>
+                </a>
+                <a href="mailto:info@bestlocalpro.us" className="flex items-start gap-4 group">
+                  <div className="w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-accent-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-navy-400 mb-0.5">Email</p>
+                    <p className="font-600 text-navy-800 group-hover:text-accent-600 transition-colors">info@bestlocalpro.us</p>
+                  </div>
+                </a>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-4 h-4 text-accent-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-navy-400 mb-0.5">Serving</p>
+                    <p className="font-600 text-navy-800">Your Local Area</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* Form side */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="bg-stone-50 p-5 sm:p-8 md:p-10">
-              <h3 className="font-display text-2xl font-700 mb-6">Request a Free Estimate</h3>
-
-              {submitted ? (
-                <div className="text-center py-16">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Send className="w-7 h-7 text-green-600" />
-                  </div>
-                  <p className="font-display text-xl font-600 mb-2">Message Sent!</p>
-                  <p className="text-stone-500">We&apos;ll get back to you within 24 hours.</p>
-                </div>
-              ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }} className="space-y-5">
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="text-xs text-stone-500 uppercase tracking-wider font-600 mb-1.5 block">First Name</label>
-                      <input type="text" required className="w-full px-4 py-3 bg-white border border-stone-200 text-stone-900 focus:border-gold-500 focus:ring-0 outline-none transition-colors" />
-                    </div>
-                    <div>
-                      <label className="text-xs text-stone-500 uppercase tracking-wider font-600 mb-1.5 block">Last Name</label>
-                      <input type="text" required className="w-full px-4 py-3 bg-white border border-stone-200 text-stone-900 focus:border-gold-500 focus:ring-0 outline-none transition-colors" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-xs text-stone-500 uppercase tracking-wider font-600 mb-1.5 block">Phone</label>
-                    <input type="tel" required className="w-full px-4 py-3 bg-white border border-stone-200 text-stone-900 focus:border-gold-500 focus:ring-0 outline-none transition-colors" />
-                  </div>
-                  <div>
-                    <label className="text-xs text-stone-500 uppercase tracking-wider font-600 mb-1.5 block">Email</label>
-                    <input type="email" required className="w-full px-4 py-3 bg-white border border-stone-200 text-stone-900 focus:border-gold-500 focus:ring-0 outline-none transition-colors" />
-                  </div>
-                  <div>
-                    <label className="text-xs text-stone-500 uppercase tracking-wider font-600 mb-1.5 block">Project Type</label>
-                    <select required defaultValue="" className="w-full px-4 py-3 bg-white border border-stone-200 text-stone-900 focus:border-gold-500 focus:ring-0 outline-none transition-colors">
-                      <option value="" disabled>Select a service</option>
-                      <option>Kitchen & Bath Remodel</option>
-                      <option>Home Addition</option>
-                      <option>New Construction</option>
-                      <option>Commercial Build-Out</option>
-                      <option>Exterior & Siding</option>
-                      <option>Structural Repair</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-xs text-stone-500 uppercase tracking-wider font-600 mb-1.5 block">Tell Us About Your Project</label>
-                    <textarea rows={4} className="w-full px-4 py-3 bg-white border border-stone-200 text-stone-900 focus:border-gold-500 focus:ring-0 outline-none transition-colors resize-none" />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-4 bg-gold-500 text-white font-600 uppercase tracking-wider text-sm hover:bg-gold-600 transition-colors"
-                  >
-                    Submit Request
-                  </button>
-                </form>
-              )}
+            <div className="bg-navy-900 rounded-2xl p-6 sm:p-8 text-center">
+              <p className="text-accent-400 font-display font-700 text-lg mb-2">Are You a Pro?</p>
+              <p className="text-navy-300 text-sm mb-4 leading-relaxed">
+                Stop buying leads. Start buying wins. Pay only when we deliver a qualified appointment.
+              </p>
+              <a href="tel:2407802608" className="inline-flex items-center gap-2 text-white font-600 hover:text-accent-400 transition-colors">
+                <Phone className="w-4 h-4" />
+                Call Now: (240) 780-2608
+              </a>
             </div>
           </motion.div>
         </div>

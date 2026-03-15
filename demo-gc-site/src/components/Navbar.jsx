@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Phone } from 'lucide-react'
 
 const links = [
-  { label: 'About', href: '#about' },
+  { label: 'How It Works', href: '#how-it-works' },
   { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'For Pros', href: '#for-pros' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -14,60 +13,88 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled ? 'bg-stone-950/95 backdrop-blur-md shadow-xl' : 'bg-transparent'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
     }`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
-        <a href="#" className="flex items-center gap-3">
-          <div className="w-10 h-10 border-2 border-gold-500 flex items-center justify-center">
-            <span className="font-display text-gold-500 font-700 text-lg leading-none">S</span>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
+        <a href="#" className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-lg bg-accent-500 flex items-center justify-center">
+            <span className="text-white font-display font-800 text-sm">B</span>
           </div>
-          <div className="hidden sm:block">
-            <p className="font-display text-white text-lg font-600 leading-tight tracking-wide">SUMMIT</p>
-            <p className="text-[10px] text-gold-400 uppercase tracking-[0.25em] font-500">General Contractors</p>
-          </div>
+          <span className={`font-display font-700 text-lg transition-colors ${scrolled ? 'text-navy-800' : 'text-white'}`}>
+            Best<span className="text-accent-500">Local</span>Pro
+          </span>
         </a>
 
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {links.map(({ label, href }) => (
-            <a key={href} href={href} className="text-sm text-white/70 hover:text-gold-400 transition-colors uppercase tracking-wider font-500">
+            <a
+              key={label}
+              href={href}
+              className={`text-sm font-500 transition-colors hover:text-accent-500 ${
+                scrolled ? 'text-navy-600' : 'text-white/80'
+              }`}
+            >
               {label}
             </a>
           ))}
         </div>
 
-        <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:+12066604218" className="flex items-center gap-2 text-sm text-gold-400 font-600">
+        <div className="hidden md:flex items-center gap-4">
+          <a href="tel:2407802608" className={`flex items-center gap-2 text-sm font-600 transition-colors ${
+            scrolled ? 'text-navy-700' : 'text-white'
+          }`}>
             <Phone className="w-4 h-4" />
-            (206) 660-4218
+            (240) 780-2608
           </a>
-          <a href="#contact" className="px-6 py-2.5 bg-gold-500 text-white text-sm font-600 uppercase tracking-wider hover:bg-gold-600 transition-colors">
-            Free Estimate
+          <a
+            href="#contact"
+            className="px-5 py-2.5 bg-accent-500 text-white text-sm font-600 rounded-full hover:bg-accent-600 transition-colors shadow-lg shadow-accent-500/25"
+          >
+            Get Started
           </a>
         </div>
 
-        <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-white">
+        <button
+          onClick={() => setOpen(!open)}
+          className={`md:hidden p-2 ${scrolled ? 'text-navy-800' : 'text-white'}`}
+        >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-stone-950/98 backdrop-blur-md border-t border-white/10">
-          <div className="px-6 py-6 space-y-4">
+        <div className="md:hidden bg-white border-t border-navy-100 shadow-xl">
+          <div className="px-4 py-4 space-y-1">
             {links.map(({ label, href }) => (
-              <a key={href} href={href} onClick={() => setOpen(false)} className="block text-white/70 hover:text-gold-400 uppercase tracking-wider text-sm font-500">
+              <a
+                key={label}
+                href={href}
+                onClick={() => setOpen(false)}
+                className="block px-4 py-3 text-navy-700 font-500 hover:bg-navy-50 rounded-lg transition-colors"
+              >
                 {label}
               </a>
             ))}
-            <a href="tel:+12066604218" className="block pt-4 text-gold-400 font-600 text-sm">
-              <Phone className="w-4 h-4 inline mr-2" />(206) 660-4218
-            </a>
+            <div className="pt-3 border-t border-navy-100 mt-3">
+              <a href="tel:2407802608" className="flex items-center gap-2 px-4 py-3 text-navy-700 font-600">
+                <Phone className="w-4 h-4" />
+                (240) 780-2608
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="block text-center mt-2 px-5 py-3 bg-accent-500 text-white font-600 rounded-full"
+              >
+                Get Started
+              </a>
+            </div>
           </div>
         </div>
       )}

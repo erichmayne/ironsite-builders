@@ -1,98 +1,72 @@
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Shield, Star, Clock } from 'lucide-react'
+
+const badges = [
+  { icon: Shield, label: '100% Free for Homeowners' },
+  { icon: Star, label: 'Vetted & Qualified Pros' },
+  { icon: Clock, label: 'Fast, Confirmed Appointments' },
+]
 
 export default function Hero() {
   return (
-    <section className="relative h-[100svh] min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
-      {/* Background image */}
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
           src="/img/hero.jpg"
-          alt="Construction site"
+          alt="Beautiful home"
           className="w-full h-full object-cover"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/70 to-stone-950/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-stone-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/70 to-navy-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-navy-950/20" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 sm:py-32 w-full">
         <div className="max-w-3xl">
-          {/* Gold accent line */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: 80 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="h-[3px] bg-gold-500 mb-8"
-          />
+          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-500 mb-6 sm:mb-8">
+            <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" />
+            Serving Your Local Area
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-gold-400 uppercase tracking-[0.15em] sm:tracking-[0.3em] text-xs sm:text-sm font-600 mb-4"
-          >
-            Seattle Metro&apos;s Trusted Builder
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-700 leading-[1.05] mb-6"
-          >
-            Building with
+          <h1 className="animate-fade-in-up animate-delay-100 font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-800 leading-[1.05] text-white mb-5 sm:mb-6">
+            Your Home Deserves
             <br />
-            <span className="text-gold-400">Purpose & Precision</span>
-          </motion.h1>
+            the <span className="text-accent-400">Best Local Pro</span>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="text-base sm:text-lg md:text-xl text-white/60 max-w-xl leading-relaxed mb-8 sm:mb-10"
-          >
-            Residential and commercial general contracting across the greater Seattle
-            area. Over 20 years of building homes, businesses, and lasting relationships.
-          </motion.p>
+          <p className="animate-fade-in-up animate-delay-200 text-base sm:text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed mb-8 sm:mb-10">
+            We connect property owners with vetted, top-rated professionals for
+            every home project — kitchens, baths, roofs, decks, and everything
+            in between. Free for homeowners, always.
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
+          <div className="animate-fade-in-up animate-delay-300 flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-14">
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gold-500 text-white font-600 uppercase tracking-wider text-sm hover:bg-gold-600 transition-all"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white font-600 rounded-full text-base hover:bg-accent-600 transition-all shadow-xl shadow-accent-500/30 hover:shadow-accent-500/50"
             >
-              Request a Free Estimate
+              Find a Pro
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#projects"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white font-500 uppercase tracking-wider text-sm hover:border-gold-400 hover:text-gold-400 transition-all"
+              href="#for-pros"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white font-500 rounded-full text-base hover:border-accent-400 hover:text-accent-400 transition-all"
             >
-              View Our Work
+              I&apos;m a Pro — Learn More
             </a>
-          </motion.div>
+          </div>
+
+          <div className="animate-fade-in-up animate-delay-400 flex flex-wrap gap-4 sm:gap-6">
+            {badges.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-2.5 text-sm text-white/70">
+                <div className="w-9 h-9 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                  <Icon className="w-4 h-4 text-accent-400" />
+                </div>
+                {label}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] text-white/30 uppercase tracking-[0.3em]">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-px h-10 bg-gradient-to-b from-gold-500 to-transparent"
-        />
-      </motion.div>
     </section>
   )
 }

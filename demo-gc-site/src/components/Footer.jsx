@@ -1,71 +1,78 @@
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail } from 'lucide-react'
+
+const footerLinks = {
+  'For Homeowners': [
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'Project Types', href: '#services' },
+    { label: 'Find a Pro', href: '#contact' },
+  ],
+  'For Pros': [
+    { label: 'Why BLP', href: '#for-pros' },
+    { label: 'Become a Pro', href: '#contact' },
+    { label: 'Call Us', href: 'tel:2407802608' },
+  ],
+  'Company': [
+    { label: 'About', href: '#how-it-works' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'Contact', href: '#contact' },
+  ],
+}
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-950 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 border-2 border-gold-500 flex items-center justify-center">
-                <span className="font-display text-gold-500 font-700 text-lg leading-none">S</span>
+    <footer className="bg-navy-950 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-9 h-9 rounded-lg bg-accent-500 flex items-center justify-center">
+                <span className="text-white font-display font-800 text-sm">B</span>
               </div>
-              <div>
-                <p className="font-display text-white text-lg font-600 tracking-wide">SUMMIT</p>
-                <p className="text-[10px] text-gold-400 uppercase tracking-[0.2em]">General Contractors</p>
-              </div>
+              <span className="font-display font-700 text-lg text-white">
+                Best<span className="text-accent-400">Local</span>Pro
+              </span>
             </div>
-            <p className="text-sm text-white/40 leading-relaxed">
-              Building across the greater Seattle metro area since 2004. Licensed, bonded, and insured.
+            <p className="text-navy-400 text-sm leading-relaxed mb-6 max-w-xs">
+              Connecting property owners with the best local professionals for every home improvement project. Free for homeowners, always.
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-600 text-sm uppercase tracking-wider mb-5">Company</h4>
-            <ul className="space-y-3">
-              {['About', 'Services', 'Projects', 'Testimonials', 'Contact'].map((l) => (
-                <li key={l}>
-                  <a href={`#${l.toLowerCase()}`} className="text-sm text-white/40 hover:text-gold-400 transition-colors">{l}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-600 text-sm uppercase tracking-wider mb-5">Services</h4>
-            <ul className="space-y-3">
-              {['Kitchen & Bath', 'Home Additions', 'Commercial', 'New Construction', 'Exterior & Siding', 'Structural Repairs'].map((s) => (
-                <li key={s}>
-                  <a href="#services" className="text-sm text-white/40 hover:text-gold-400 transition-colors">{s}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-600 text-sm uppercase tracking-wider mb-5">Contact</h4>
-            <div className="space-y-4">
-              <a href="tel:+12066604218" className="flex items-center gap-3 text-sm text-white/40 hover:text-gold-400 transition-colors">
-                <Phone className="w-4 h-4 text-gold-500" /> (206) 660-4218
+            <div className="space-y-3">
+              <a href="tel:2407802608" className="flex items-center gap-2 text-sm text-navy-300 hover:text-accent-400 transition-colors">
+                <Phone className="w-4 h-4" />
+                (240) 780-2608
               </a>
-              <a href="mailto:info@summitgc.com" className="flex items-center gap-3 text-sm text-white/40 hover:text-gold-400 transition-colors">
-                <Mail className="w-4 h-4 text-gold-500" /> info@summitgc.com
+              <a href="mailto:info@bestlocalpro.us" className="flex items-center gap-2 text-sm text-navy-300 hover:text-accent-400 transition-colors">
+                <Mail className="w-4 h-4" />
+                info@bestlocalpro.us
               </a>
-              <p className="flex items-center gap-3 text-sm text-white/40">
-                <MapPin className="w-4 h-4 text-gold-500" /> Seattle, WA
-              </p>
             </div>
           </div>
+
+          {Object.entries(footerLinks).map(([heading, links]) => (
+            <div key={heading}>
+              <h4 className="font-display font-700 text-sm uppercase tracking-wider text-white mb-4">{heading}</h4>
+              <ul className="space-y-3">
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    <a href={href} className="text-sm text-navy-400 hover:text-accent-400 transition-colors">
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Bottom */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8">
-          <p className="text-xs text-white/20">&copy; {new Date().getFullYear()} Summit General Contractors. All rights reserved.</p>
-          <p className="text-xs text-white/20">WA License #SUMMIGC*834KZ</p>
+        <div className="border-t border-navy-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-navy-500 text-sm">
+            &copy; {new Date().getFullYear()} Best Local Pro. All rights reserved.
+          </p>
+          <div className="flex items-center gap-1 text-navy-500 text-sm">
+            <span>Website by</span>
+            <a href="https://ironsite.builders" target="_blank" rel="noopener noreferrer" className="text-accent-400 font-600 hover:underline">
+              IronSite Builders
+            </a>
+          </div>
         </div>
       </div>
     </footer>

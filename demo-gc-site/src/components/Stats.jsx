@@ -2,10 +2,10 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const stats = [
-  { value: 500, suffix: '+', label: 'Projects Completed' },
-  { value: 20, suffix: '+', label: 'Years in Business' },
-  { value: 100, suffix: '%', label: 'Licensed & Insured' },
-  { value: 4.9, suffix: '★', label: 'Google Rating', decimals: 1 },
+  { value: 50, suffix: '+', label: 'Project Types Covered' },
+  { value: 100, suffix: '%', label: 'Free for Homeowners' },
+  { value: 3, suffix: 'x', label: 'Confirmed Appointments' },
+  { value: 4.9, suffix: '★', label: 'Average Pro Rating', decimals: 1 },
 ]
 
 function Counter({ target, suffix, inView, decimals = 0 }) {
@@ -31,30 +31,25 @@ export default function Stats() {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src="/img/stats-bg.jpg"
-          alt="Construction"
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-stone-950/85" />
-      </div>
+    <section className="py-16 sm:py-20 bg-accent-500 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+        backgroundSize: '24px 24px',
+      }} />
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
           {stats.map(({ value, suffix, label, decimals }, i) => (
             <motion.div
               key={label}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.15, duration: 0.5 }}
+              transition={{ delay: i * 0.12, duration: 0.5 }}
             >
-              <p className="font-display text-3xl sm:text-4xl md:text-5xl text-gold-500 font-700 mb-2">
+              <p className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-800 mb-2">
                 <Counter target={value} suffix={suffix} inView={inView} decimals={decimals} />
               </p>
-              <p className="text-white/50 text-sm uppercase tracking-wider">{label}</p>
+              <p className="text-white/70 text-sm font-500 uppercase tracking-wider">{label}</p>
             </motion.div>
           ))}
         </div>

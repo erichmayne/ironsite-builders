@@ -1,37 +1,15 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const services = [
-  {
-    title: 'Kitchen & Bath Remodels',
-    desc: 'Complete gut renovations to cosmetic refreshes. Custom cabinetry, tile, countertops, and fixtures — designed and installed to last.',
-    image: '/img/svc-renovation.jpg',
-  },
-  {
-    title: 'Home Additions',
-    desc: 'Need more space? We build room additions, second stories, ADUs, and garage conversions that match your existing home seamlessly.',
-    image: '/img/svc-commercial.jpg',
-  },
-  {
-    title: 'Commercial Build-Outs',
-    desc: 'Tenant improvements, retail spaces, restaurants, and offices. We work within your timeline and budget to get your doors open.',
-    image: '/img/svc-development.jpg',
-  },
-  {
-    title: 'New Construction',
-    desc: 'Custom homes built from the ground up. We manage every phase — from permits and foundation to finishing touches and final walk-through.',
-    image: '/img/svc-interior.jpg',
-  },
-  {
-    title: 'Exterior & Siding',
-    desc: 'Siding replacement, window installations, decks, patios, and exterior repairs. Built to handle Pacific Northwest weather.',
-    image: '/img/svc-restoration.jpg',
-  },
-  {
-    title: 'Structural Repairs',
-    desc: 'Foundation work, load-bearing wall modifications, seismic retrofitting, and rot repair. We fix what others are afraid to touch.',
-    image: '/img/svc-sustainability.jpg',
-  },
+const categories = [
+  { title: 'Kitchens & Baths', image: '/img/kitchen.jpg', desc: 'Full remodels, cabinetry, countertops, tile, and fixtures' },
+  { title: 'Roofing & Gutters', image: '/img/roofing.jpg', desc: 'Replacement, repair, inspection, and gutter systems' },
+  { title: 'Decks & Patios', image: '/img/deck.jpg', desc: 'New builds, repairs, staining, and outdoor living spaces' },
+  { title: 'Painting', image: '/img/painting.jpg', desc: 'Interior and exterior, prep work, staining, and finishing' },
+  { title: 'Landscaping', image: '/img/landscape.jpg', desc: 'Design, hardscape, irrigation, fencing, and maintenance' },
+  { title: 'Flooring', image: '/img/flooring.jpg', desc: 'Hardwood, tile, LVP, carpet, and refinishing' },
+  { title: 'Windows & Doors', image: '/img/windows.jpg', desc: 'Replacement, installation, energy-efficient upgrades' },
+  { title: 'Handyman & Repairs', image: '/img/handyman.jpg', desc: 'Small fixes, drywall, plumbing, electrical, and more' },
 ]
 
 export default function Services() {
@@ -39,41 +17,48 @@ export default function Services() {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <section id="services" className="py-24 sm:py-32 bg-stone-50">
+    <section id="services" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-14 sm:mb-16"
         >
-          <div className="h-[3px] w-16 bg-gold-500 mx-auto mb-6" />
-          <p className="text-gold-600 uppercase tracking-[0.2em] text-sm font-600 mb-3">What We Do</p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700">Our Services</h2>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-navy-100 text-navy-700 text-sm font-600 mb-4">
+            Every Project Type
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700 text-navy-900 mb-4">
+            Whatever Your Home Needs
+          </h2>
+          <p className="text-navy-500 text-lg max-w-2xl mx-auto">
+            From quick repairs to full renovations — we have vetted pros ready for every type of home improvement project.
+          </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200">
-          {services.map(({ title, desc, image }, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {categories.map(({ title, image, desc }, i) => (
             <motion.div
               key={title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group bg-white overflow-hidden"
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
             >
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={image}
-                  alt={title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-stone-950/40 transition-colors duration-500" />
-              </div>
-              <div className="p-5 sm:p-7">
-                <h3 className="font-display text-xl font-600 mb-3 group-hover:text-gold-600 transition-colors">{title}</h3>
-                <p className="text-sm text-stone-500 leading-relaxed">{desc}</p>
+              <img
+                src={image}
+                alt={title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/30 to-transparent" />
+              <div className="absolute inset-0 bg-accent-500/0 group-hover:bg-accent-500/10 transition-colors duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                <h3 className="font-display text-lg font-700 text-white mb-1 group-hover:text-accent-300 transition-colors">
+                  {title}
+                </h3>
+                <p className="text-sm text-white/60 leading-snug">{desc}</p>
               </div>
             </motion.div>
           ))}

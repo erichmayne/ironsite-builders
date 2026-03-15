@@ -48,7 +48,7 @@ export default function Portfolio() {
                 <img
                   src="/img/portfolio-demo.jpg"
                   loading="lazy"
-                  alt="Summit General Contractors demo"
+                  alt="Best Local Pro demo"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-blue-950/80 hidden lg:block" />
@@ -60,14 +60,14 @@ export default function Portfolio() {
                     Live Demo
                   </span>
                   <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-wider">
-                    General Contractor
+                    Home Services Marketplace
                   </span>
                 </div>
                 <h3 className="font-display text-2xl lg:text-3xl font-800 text-white mb-3">
-                  Summit General Contractors
+                  Best Local Pro
                 </h3>
                 <p className="text-blue-200/50 leading-relaxed mb-6">
-                  Full general contractor website with project portfolio, services breakdown, testimonial carousel, and estimate request form. Click to explore the live site.
+                  Two-sided home services marketplace connecting homeowners with vetted local pros. Dual-audience contact forms, service categories, and contractor signup flow. Click to explore the live site.
                 </p>
                 <div className="inline-flex items-center gap-2 text-blue-400 font-semibold group-hover:text-white transition-colors">
                   View Website Demo
