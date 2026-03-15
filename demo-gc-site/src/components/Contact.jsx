@@ -18,25 +18,27 @@ export default function Contact() {
     setStatus('sending')
 
     const form = e.target
-    const data = new FormData(form)
+    const formData = new FormData(form)
+    const payload = Object.fromEntries(formData.entries())
 
-    if (tab === 'homeowner') {
-      data.set('_subject', 'looking for a pro')
-    } else {
-      data.set('_subject', 'become a pro app.')
-    }
-
-    data.set('_template', 'table')
-    data.set('Form Type', tab === 'homeowner' ? 'Homeowner - Find a Pro' : 'Contractor - Become a Pro')
+    payload._subject = tab === 'homeowner' ? 'looking for a pro' : 'become a pro app.'
+    payload._template = 'table'
+    payload._captcha = 'false'
+    payload['Form Type'] = tab === 'homeowner' ? 'Homeowner - Find a Pro' : 'Contractor - Become a Pro'
 
     try {
       const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
       })
 
-      if (res.ok) {
+      const json = await res.json().catch(() => null)
+
+      if (res.ok || (json && json.success)) {
         setStatus('success')
         setSuccessMsg(
           tab === 'homeowner'
@@ -49,7 +51,8 @@ export default function Contact() {
         setStatus('error')
         setTimeout(() => setStatus('idle'), 4000)
       }
-    } catch {
+    } catch (err) {
+      console.error('Form submission error:', err)
       setStatus('error')
       setTimeout(() => setStatus('idle'), 4000)
     }
@@ -120,7 +123,6 @@ export default function Contact() {
             )}
 
             <form className="space-y-4" onSubmit={handleSubmit}>
-              <input type="hidden" name="_captcha" value="false" />
               <div className="grid sm:grid-cols-2 gap-4">
                 <input type="text" name="name" placeholder="Full Name" required className={inputClass} />
                 <input type="tel" name="phone" placeholder="Phone Number" required className={inputClass} />
