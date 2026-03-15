@@ -24,9 +24,7 @@ export default function Navbar() {
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
         <a href="#" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-accent-500 flex items-center justify-center">
-            <span className="text-white font-display font-800 text-sm">B</span>
-          </div>
+          <img src="/logo-nav.png" alt="Best Local Pro" className="h-10 sm:h-12 w-auto" />
           <span className={`font-display font-700 text-lg transition-colors ${scrolled ? 'text-navy-800' : 'text-white'}`}>
             Best<span className="text-accent-500">Local</span>Pro
           </span>

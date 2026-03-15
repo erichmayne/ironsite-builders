@@ -25,9 +25,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-accent-500 flex items-center justify-center">
-                <span className="text-white font-display font-800 text-sm">B</span>
-              </div>
+              <img src="/logo-nav.png" alt="Best Local Pro" className="h-10 w-auto" />
               <span className="font-display font-700 text-lg text-white">
                 Best<span className="text-accent-400">Local</span>Pro
               </span>
