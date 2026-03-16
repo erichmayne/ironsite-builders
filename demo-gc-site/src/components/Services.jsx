@@ -33,7 +33,7 @@ export default function Services() {
             Whatever Your Home Needs
           </h2>
           <p className="text-navy-500 text-lg max-w-2xl mx-auto">
-            From quick repairs to full renovations — we have vetted pros ready for every type of home improvement project.
+            From quick repairs to full renovations — we have trusted, recommended pros ready for every type of home project.
           </p>
         </motion.div>
 
@@ -46,18 +46,11 @@ export default function Services() {
               transition={{ delay: i * 0.08, duration: 0.5 }}
               className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
             >
-              <img
-                src={image}
-                alt={title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
+              <img src={image} alt={title} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/30 to-transparent" />
               <div className="absolute inset-0 bg-accent-500/0 group-hover:bg-accent-500/10 transition-colors duration-500" />
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                <h3 className="font-display text-lg font-700 text-white mb-1 group-hover:text-accent-300 transition-colors">
-                  {title}
-                </h3>
+                <h3 className="font-display text-lg font-700 text-white mb-1 group-hover:text-accent-300 transition-colors">{title}</h3>
                 <p className="text-sm text-white/60 leading-snug">{desc}</p>
               </div>
             </motion.div>

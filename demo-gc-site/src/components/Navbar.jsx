@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone } from 'lucide-react'
 
-const links = [
+const flpLinks = [
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Services', href: '#services' },
-  { label: 'For Pros', href: '#for-pros' },
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+const blpLinks = [
+  { label: 'Why BLP', href: '#why-blp' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Contact', href: '#contact' },
+]
+
+export default function Navbar({ variant = 'flp' }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const location = useLocation()
+  const isFLP = variant === 'flp'
+  const links = isFLP ? flpLinks : blpLinks
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -18,30 +27,38 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => { setOpen(false); window.scrollTo(0, 0) }, [location.pathname])
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
-        <a href="#" className="flex items-center gap-2">
+        <Link to={isFLP ? '/' : '/pros'} className="flex items-center gap-2">
           <img src="/logo-nav.png" alt="Best Local Pro" className="h-10 sm:h-12 w-auto" />
           <span className={`font-display font-700 text-lg transition-colors ${scrolled ? 'text-navy-800' : 'text-white'}`}>
-            Best<span className="text-accent-500">Local</span>Pro
+            {isFLP ? (
+              <>find<span className="text-accent-500">local</span>pros</>
+            ) : (
+              <>Best<span className="text-accent-500">Local</span>Pro</>
+            )}
           </span>
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className={`text-sm font-500 transition-colors hover:text-accent-500 ${
-                scrolled ? 'text-navy-600' : 'text-white/80'
-              }`}
-            >
-              {label}
-            </a>
+            <a key={label} href={href} className={`text-sm font-500 transition-colors hover:text-accent-500 ${
+              scrolled ? 'text-navy-600' : 'text-white/80'
+            }`}>{label}</a>
           ))}
+          <Link
+            to={isFLP ? '/pros' : '/'}
+            className={`text-sm font-500 transition-colors hover:text-accent-500 ${
+              scrolled ? 'text-navy-600' : 'text-white/80'
+            }`}
+          >
+            {isFLP ? 'Are You a Pro?' : 'Need a Pro?'}
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-4">
@@ -51,18 +68,12 @@ export default function Navbar() {
             <Phone className="w-4 h-4" />
             (240) 780-2608
           </a>
-          <a
-            href="#contact"
-            className="px-5 py-2.5 bg-accent-500 text-white text-sm font-600 rounded-full hover:bg-accent-600 transition-colors shadow-lg shadow-accent-500/25"
-          >
-            Get Started
+          <a href="#contact" className="px-5 py-2.5 bg-accent-500 text-white text-sm font-600 rounded-full hover:bg-accent-600 transition-colors shadow-lg shadow-accent-500/25">
+            {isFLP ? 'Get Started' : 'Join Now'}
           </a>
         </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className={`md:hidden p-2 ${scrolled ? 'text-navy-800' : 'text-white'}`}
-        >
+        <button onClick={() => setOpen(!open)} className={`md:hidden p-2 ${scrolled ? 'text-navy-800' : 'text-white'}`}>
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </nav>
@@ -71,26 +82,17 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-navy-100 shadow-xl">
           <div className="px-4 py-4 space-y-1">
             {links.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-3 text-navy-700 font-500 hover:bg-navy-50 rounded-lg transition-colors"
-              >
-                {label}
-              </a>
+              <a key={label} href={href} onClick={() => setOpen(false)} className="block px-4 py-3 text-navy-700 font-500 hover:bg-navy-50 rounded-lg transition-colors">{label}</a>
             ))}
+            <Link to={isFLP ? '/pros' : '/'} onClick={() => setOpen(false)} className="block px-4 py-3 text-accent-600 font-600 hover:bg-accent-50 rounded-lg transition-colors">
+              {isFLP ? 'Are You a Pro? →' : 'Need a Pro? →'}
+            </Link>
             <div className="pt-3 border-t border-navy-100 mt-3">
               <a href="tel:2407802608" className="flex items-center gap-2 px-4 py-3 text-navy-700 font-600">
-                <Phone className="w-4 h-4" />
-                (240) 780-2608
+                <Phone className="w-4 h-4" />(240) 780-2608
               </a>
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="block text-center mt-2 px-5 py-3 bg-accent-500 text-white font-600 rounded-full"
-              >
-                Get Started
+              <a href="#contact" onClick={() => setOpen(false)} className="block text-center mt-2 px-5 py-3 bg-accent-500 text-white font-600 rounded-full">
+                {isFLP ? 'Get Started' : 'Join Now'}
               </a>
             </div>
           </div>

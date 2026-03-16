@@ -2,42 +2,52 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Quote } from 'lucide-react'
 
-const testimonials = [
+const homeownerTestimonials = [
   {
-    quote: "I was dreading having to call a dozen contractors. BLP matched me with an incredible kitchen guy in 24 hours. He showed up on time, knew exactly what I needed, and the price was fair. This is how it should always work.",
+    quote: "I was dreading having to call a dozen contractors. They matched me with an incredible kitchen guy in 24 hours. He showed up on time, knew exactly what I needed, and the price was fair. This is how it should always work.",
     name: 'Sarah M.',
-    role: 'Homeowner — Kitchen Remodel',
-    type: 'homeowner',
-  },
-  {
-    quote: "I used to spend thousands on lead services and half the leads were garbage. With BLP, every appointment is a real homeowner who actually wants the work done. I close at nearly double my old rate.",
-    name: 'Mike R.',
-    role: 'Licensed General Contractor',
-    type: 'pro',
+    role: 'Kitchen Remodel',
   },
   {
     quote: "They scheduled my appointment, confirmed it three times, and even followed up after the pro visited to make sure everything went well. I\u2019ve never had a service care this much about the experience.",
     name: 'Jennifer L.',
-    role: 'Homeowner — Bathroom Renovation',
-    type: 'homeowner',
+    role: 'Bathroom Renovation',
   },
   {
-    quote: "No retainer, no monthly fee — I only pay when they put me in front of a real opportunity. That\u2019s how confident they are. And honestly, they deliver. Best lead source I\u2019ve ever used.",
-    name: 'David K.',
-    role: 'Roofing & Siding Contractor',
-    type: 'pro',
+    quote: "My roof had been leaking for weeks and I didn\u2019t know who to call. Within a day they had a trusted local roofer at my door. Professional, fair, and the job was done right. Can\u2019t recommend this enough.",
+    name: 'Tom H.',
+    role: 'Roof Repair',
   },
 ]
 
-export default function Testimonials() {
+const proTestimonials = [
+  {
+    quote: "I used to spend thousands on lead services and half the leads were garbage. With BLP, every appointment is a real homeowner who actually wants the work done. I close at nearly double my old rate.",
+    name: 'Mike R.',
+    role: 'Licensed General Contractor',
+  },
+  {
+    quote: "No retainer, no monthly fee \u2014 I only pay when they put me in front of a real opportunity. That\u2019s how confident they are. And honestly, they deliver. Best lead source I\u2019ve ever used.",
+    name: 'David K.',
+    role: 'Roofing & Siding Contractor',
+  },
+  {
+    quote: "The homeowners I meet through BLP are ready to go. They know who I am, they know what I do, and they\u2019ve already decided they want to talk. That changes everything about the conversation.",
+    name: 'Carlos P.',
+    role: 'Remodel Specialist',
+  },
+]
+
+export default function Testimonials({ variant = 'flp' }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
+  const testimonials = variant === 'flp' ? homeownerTestimonials : proTestimonials
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => setCurrent(c => (c + 1) % testimonials.length), 6000)
     return () => clearInterval(timer)
-  }, [])
+  }, [testimonials.length])
 
   const t = testimonials[current]
 
@@ -52,14 +62,14 @@ export default function Testimonials() {
           className="text-center mb-12"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent-100 text-accent-700 text-sm font-600 mb-4">
-            Real Results
+            {variant === 'flp' ? 'Homeowners Love It' : 'Pros Trust It'}
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700 text-navy-900">
-            What People Are Saying
+            {variant === 'flp' ? 'Real Help. Real Results.' : 'Hear From Our Pros'}
           </h2>
         </motion.div>
 
-        <div className="relative bg-white rounded-2xl shadow-lg border border-navy-100 p-6 sm:p-10 md:p-12 min-h-[280px] flex flex-col justify-center">
+        <div className="relative bg-white rounded-2xl shadow-lg border border-navy-100 p-6 sm:p-10 md:p-12 min-h-[260px] flex flex-col justify-center">
           <Quote className="w-10 h-10 text-accent-200 mb-4" />
 
           <p className="text-base sm:text-xl md:text-2xl text-navy-700 leading-relaxed mb-6 font-500 italic">
@@ -68,7 +78,7 @@ export default function Testimonials() {
 
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-700 text-sm ${
-              t.type === 'pro' ? 'bg-navy-700' : 'bg-accent-500'
+              variant === 'flp' ? 'bg-accent-500' : 'bg-navy-700'
             }`}>
               {t.name[0]}
             </div>
@@ -76,13 +86,6 @@ export default function Testimonials() {
               <p className="font-600 text-navy-800">{t.name}</p>
               <p className="text-sm text-navy-400">{t.role}</p>
             </div>
-            <span className={`ml-auto px-3 py-1 rounded-full text-xs font-600 uppercase tracking-wider ${
-              t.type === 'pro'
-                ? 'bg-navy-100 text-navy-600'
-                : 'bg-accent-100 text-accent-700'
-            }`}>
-              {t.type === 'pro' ? 'Pro' : 'Homeowner'}
-            </span>
           </div>
 
           <div className="flex justify-center gap-2 mt-8">

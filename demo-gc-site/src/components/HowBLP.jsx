@@ -1,29 +1,29 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ClipboardList, Users, ThumbsUp } from 'lucide-react'
+import { UserCheck, CalendarCheck, Trophy } from 'lucide-react'
 
 const steps = [
   {
-    icon: ClipboardList,
+    icon: UserCheck,
     step: '01',
-    title: 'Tell Us About Your Project',
-    desc: 'Kitchen remodel? New roof? Deck repair? Let us know what you need — any size project, interior or exterior.',
+    title: 'We Find the Homeowner',
+    desc: 'Our FindLocalPros platform connects us with property owners actively looking for help with real projects. We qualify every lead before you hear about it.',
   },
   {
-    icon: Users,
+    icon: CalendarCheck,
     step: '02',
-    title: 'We Match You With a Trusted Pro',
-    desc: 'We do the legwork. We find and match you with the most trusted, recommended local professional for your specific project.',
+    title: 'We Triple-Confirm the Appointment',
+    desc: 'We schedule, confirm, and re-confirm. You show up to meet a real decision-maker who knows who you are, wants what you offer, and has time for you.',
   },
   {
-    icon: ThumbsUp,
+    icon: Trophy,
     step: '03',
-    title: 'Get It Done Right',
-    desc: 'We schedule and triple-confirm your appointment, follow up with a quality check, and stay with you through the finish line.',
+    title: 'You Win the Job',
+    desc: 'You just need to be the best pro to help with their solution. We handle the lead gen — you handle the craft. You only pay when we deliver a win.',
   },
 ]
 
-export default function HowItWorks() {
+export default function HowBLP() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
@@ -38,13 +38,13 @@ export default function HowItWorks() {
           className="text-center mb-14 sm:mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent-100 text-accent-700 text-sm font-600 mb-4">
-            Simple & Free
+            How It Works
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-700 text-navy-900 mb-4">
-            How It <span className="text-accent-500">Works</span>
+            We Get You <span className="text-accent-500">In the Door</span>
           </h2>
           <p className="text-navy-500 text-lg max-w-2xl mx-auto">
-            Finding the right pro shouldn&apos;t be a project in itself. We handle the search so you don&apos;t have to.
+            No chasing. No cold calls. No wasted time. We deliver qualified appointments — you deliver great work.
           </p>
         </motion.div>
 
@@ -58,8 +58,8 @@ export default function HowItWorks() {
               className="relative bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-navy-100 hover:shadow-lg hover:border-accent-200 transition-all duration-300 group"
             >
               <div className="flex items-center gap-4 mb-5">
-                <div className="w-14 h-14 rounded-xl bg-accent-500 flex items-center justify-center shadow-lg shadow-accent-500/20 group-hover:scale-105 transition-transform">
-                  <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
+                <div className="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center shadow-lg shadow-navy-800/20 group-hover:scale-105 transition-transform">
+                  <Icon className="w-6 h-6 text-accent-400" strokeWidth={1.8} />
                 </div>
                 <span className="text-4xl font-display font-800 text-navy-100">{step}</span>
               </div>
