@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, Shield, Heart, Clock } from 'lucide-react'
 
 const badges = [
@@ -43,12 +42,6 @@ export default function HeroFLP() {
               Find a Pro
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <Link
-              to="/pros"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white font-500 rounded-full text-base hover:border-accent-400 hover:text-accent-400 transition-all"
-            >
-              Are You a Pro?
-            </Link>
           </div>
 
           <div className="animate-fade-in-up animate-delay-400 flex flex-wrap gap-4 sm:gap-6">

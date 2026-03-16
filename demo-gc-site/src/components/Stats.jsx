@@ -11,7 +11,7 @@ const flpStats = [
 const blpStats = [
   { value: 3, suffix: 'x', label: 'Confirmed Appointments' },
   { value: 0, suffix: '$', label: 'Upfront Cost', prefix: '' },
-  { value: 2, suffix: 'x', label: 'Higher Close Rate' },
+  { value: 5, suffix: 'x', label: 'Higher Close Rate' },
   { value: 100, suffix: '%', label: 'Pay-for-Results' },
 ]
 
